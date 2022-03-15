@@ -1,0 +1,63 @@
+.keyboard {
+    align-self: end;
+    display: grid;
+    grid-template-columns: repeat(20, minmax(auto, 1.2rem));
+    grid-auto-rows: 3.5rem;
+    gap: .25rem;
+
+    &__button {
+        padding: 0;
+        border: none;
+        font-size: .8rem;
+        text-transform: uppercase;
+        grid-column: span 2;
+        color: #fff;
+        background-color: hsl(
+            var(--hue, 200),
+            var(--saturation, 1%),
+            calc(var(--lightness-offset, 0%) + var(--lightness, 51%))
+        );
+        font-weight: bold;
+        border-radius: 0.25em;
+        cursor: pointer;
+        user-select: none;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &--large {
+            grid-column: span 3;
+        }
+
+        &--brake {
+            grid-column: 2 / span 2;
+        }
+
+        &--wrong {
+            --lightness: 23%;
+        }
+
+        &--wrong-location {
+            --hue: 49;
+            --saturation: 51%;
+            --lightness: 47%;
+        }
+
+        &--correct {
+            --hue: 115;
+            --saturation: 29%;
+            --lightness: 43%;
+        }
+
+        &:hover,
+        &:focus {
+            --lightness-offset: 10%;
+        }
+
+        img {
+            width: 1.75rem;
+            height: 1.75rem;
+        }
+    }
+}

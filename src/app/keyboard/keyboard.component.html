@@ -1,0 +1,16 @@
+<div class="keyboard">
+    <button *ngFor="let letter of letters | objectValues"
+            (click)="onKeyClick(letter.value)"
+            class="keyboard__button"
+            [ngClass]="{ 'keyboard__button--large': letter.value === 'enter',
+                         'keyboard__button--brake': letter.value === 'a',
+                         'keyboard__button--correct': letter.isCorrect,
+                         'keyboard__button--wrong': letter.isWrong,
+                         'keyboard__button--wrong-location': letter.isWrongLocation }">{{ letter.value }}</button>
+    
+    <button class="keyboard__button keyboard__button--large"
+            (click)="onDelete()">
+        <img src="../../assets/delete-outline.svg" alt="delete icon">
+    </button>
+</div>
+ 

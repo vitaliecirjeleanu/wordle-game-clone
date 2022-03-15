@@ -1,0 +1,12 @@
+<div class="word">
+    <div *ngFor="let slot of lettersNumber; let i = index" class="word__cell"
+    [ngClass]="{'word__cell--active': gridWord.word[i],
+                'word__cell--popin': gridWord.popIn[i],
+                'word__cell--correct': gridWord.lettersStatus.correct[i] && gridWord.flipOut[i],
+                'word__cell--wrong': gridWord.lettersStatus.wrong[i] && gridWord.flipOut[i],
+                'word__cell--wrong-location': gridWord.lettersStatus.wrongLocation[i] && gridWord.flipOut[i],
+                'word__cell--shake': gridWord.word[i] && gridWord.shake,
+                'word__cell--flipin': gridWord.flipIn[i],
+                'word__cell--flipout': gridWord.flipOut[i],
+                'word__cell--dance': gridWord.dance[i]}"> {{ gridWord.word[i] }}</div>
+</div>
